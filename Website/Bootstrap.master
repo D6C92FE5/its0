@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Bootstrap.master.cs" Inherits="Bootstrap" %>
+
+<!DOCTYPE html>
+
+<html class="no-js">
+    <head runat="server">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="~/Package/Bootstrap/css/bootstrap.css">
+
+        <%# _.PackageScriptTag("jQuery/jquery-1.9.1.min.js") %>
+        
+	    <script>
+	        // set options for html5shiv
+	        if (!window.html5) {
+	            window.html5 = {};
+	        }
+	        window.html5.shivMethods = false;
+	    </script>
+        <%# _.PackageScriptTag("Webshims/extras/modernizr-custom.js") %>
+
+	    <%# _.PackageScriptTag("Webshims/polyfiller.js") %>
+	    <script>
+	        $.webshims.polyfill('es5 forms');
+	    </script>
+
+        <asp:ContentPlaceHolder id="_Head" runat="server">
+        </asp:ContentPlaceHolder>
+    </head>
+    <body>
+        <asp:ContentPlaceHolder id="_Body" runat="server">
+        </asp:ContentPlaceHolder>
+
+	    <%= _.PackageScriptTag("Bootstrap/js/bootstrap.js") %>
+        <asp:ContentPlaceHolder id="_Script" runat="server">
+        </asp:ContentPlaceHolder>
+    </body>
+</html>

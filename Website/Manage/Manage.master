@@ -1,0 +1,101 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Bootstrap.master" AutoEventWireup="true" CodeFile="Manage.master.cs" Inherits="Manage_Manage" %>
+
+<asp:Content ID="ctHead" ContentPlaceHolderID="_Head" Runat="Server">
+    <link rel="stylesheet" href="css/Main.css">
+    <asp:ContentPlaceHolder id="_Head" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="ctBody" ContentPlaceHolderID="_Body" Runat="Server">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="brand" href="Index.aspx"><%= Config.ManageSystemName %></a>
+				<ul class="nav">
+                    <li><a href='<%= ResolveUrl("~/Default.aspx") %>' target="_blank">
+                        <i class="icon-home icon-white"></i>网站首页</a></li>
+				</ul>
+				<ul class="nav pull-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-user icon-white"></i>
+                            <%= _.User.Name %> <b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="Logout.aspx"><i class="icon-off"></i> 注销</a></li>
+							<li><a href="MyPassword.aspx"><i class="icon-pencil"></i> 修改密码</a></li>
+						</ul>
+					</li>
+				</ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span2">
+                <asp:PlaceHolder ID="ctArticle" runat="server">
+                    <div class="well sidebar-nav">
+                        <ul class="nav nav-list">
+                            <li class="nav-header">文章</li>
+                            <li><a href="ArticleList.aspx">
+                                <i class="icon-list"></i>文章列表</a></li>
+                            <li><a href="ArticleEdit.aspx">
+                                <i class="icon-plus"></i>发布文章</a></li>
+                            <asp:PlaceHolder ID="ctArticleCategory" runat="server">
+                                <li><a href="ArticleCategoryList.aspx">
+                                    <i class="icon-briefcase"></i>文章分类</a></li>
+                            </asp:PlaceHolder>
+                        </ul>
+                    </div>
+                </asp:PlaceHolder>
+                <asp:PlaceHolder ID="ctUser" runat="server">
+                    <div class="well sidebar-nav">
+                        <ul class="nav nav-list">
+                            <li class="nav-header">用户</li>
+                            <li><a href="UserList.aspx">
+                                <i class="icon-list"></i>用户列表</a></li>
+                            <li><a href="UserEdit.aspx">
+                                <i class="icon-plus"></i>添加用户</a></li>
+                        </ul>
+                    </div>
+                </asp:PlaceHolder>
+                <div class="well sidebar-nav">
+                    <ul class="nav nav-list">
+                        <li class="nav-header">日志</li>
+                        <li><a href="Log.aspx">
+                            <i class="icon-list-alt"></i>查看日志</a></li>
+                    </ul>
+                </div>
+                <div class="well sidebar-nav">
+                    <ul class="nav nav-list">
+                        <li class="nav-header">帮助</li>
+                        <li><a href="FAQ.aspx">
+                            <i class="icon-question-sign"></i>常见问题</a></li>
+                        <li><a href="About.aspx">
+                            <i class="icon-info-sign"></i>关于</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="span10">
+                <form id="formMain" runat="server">
+                    <asp:ContentPlaceHolder id="_Body" runat="server">
+                    </asp:ContentPlaceHolder>
+                </form>
+            </div>
+        </div>
+
+        <hr>
+        <footer>
+            <p>
+                &copy;
+                <a href="http://it.ouc.edu.cn/itstudio/" target="_blank">爱特工作室</a>
+                2013
+            </p>
+        </footer>
+    </div>
+</asp:Content>
+<asp:Content ID="ctScript" ContentPlaceHolderID="_Script" Runat="Server">
+    <asp:ContentPlaceHolder id="_Script" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+

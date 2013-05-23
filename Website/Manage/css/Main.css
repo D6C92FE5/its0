@@ -1,0 +1,77 @@
+﻿
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    min-width: 820px;
+}
+
+h1 {
+    display: inline-block;
+    margin-right: 2px;
+}
+
+form {
+    margin-bottom: 16px;
+}
+
+.sidebar-nav {
+    padding: 9px 0;
+}
+
+.nav-header {
+    font-size: larger;
+}
+
+/* 导航栏中的图标 */
+.navbar i {
+    opacity: 0.5;
+}
+.navbar a:hover i,
+.navbar a:focus i {
+    opacity: 1.0;
+}
+
+.dropdown-menu {
+    min-width: 130px;
+}
+
+.table th,
+.table td {
+    text-align: center;
+}
+.table td {
+    vertical-align: middle;
+}
+
+.pagination {
+    margin: 0;
+}
+
+/* 表单验证未通过的区域 */
+form .error {
+    border-color: #E9322D;
+}
+form .error:focus {
+    border-color: #E9322D;
+    box-shadow: 0 0 6px #F8B9B7;
+}
+
+/* 列表筛选信息 */
+.filterbox {
+    display: inline-block;
+    vertical-align: bottom;
+    margin: 0 3px 10px 3px;
+    padding-right: 10px;
+}
+.filterbox .close {
+    position: static;
+    padding-left: 10px;
+}
+.filterbox span {
+    font-weight: bold;
+}
+
+/* 表格中按钮的图标 */
+.table .operate i {
+    vertical-align: text-bottom;
+}

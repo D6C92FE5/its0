@@ -1,0 +1,7 @@
+
+# 数据库
+Website/App_Data/*.mdf
+Website/App_Data/*.ldf
+
+# 发布
+Publish/
