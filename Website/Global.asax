@@ -26,19 +26,23 @@
     { 
         // 在出现未处理的错误时运行的代码
 
+        // 发生错误时的 URL，注意 Request 不可用时会引发异常
+        var url = "";
+        try
+        {
+            url = HttpContext.Current.Request.RawUrl;
+        }
+        catch
+        {
+        }
+        
         // 记录异常
         var ex = Server.GetLastError().GetBaseException();
-        if (ex.GetType() != typeof(System.Threading.ThreadAbortException))
+        if (ex.GetType() != typeof(System.Threading.ThreadAbortException) && // 忽略强制终止线程
+            url != "/favicon.ico") // 忽略图标不存在
         {
             ex.Data["__its_exception_occur_time__"] = DateTime.Now;
-            ex.Data["__its_exception_url__"] = 0;
-            try
-            {
-                ex.Data["__its_exception_url__"] = HttpContext.Current.Request.RawUrl;
-            }
-            catch
-            {
-            }
+            ex.Data["__its_exception_url__"] = url;
             
             _.ExceptionLogQueue.Enqueue(ex);
         }
