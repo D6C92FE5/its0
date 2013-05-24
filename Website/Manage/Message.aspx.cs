@@ -10,13 +10,14 @@ public partial class Manage_Message : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["Message"] == null)
+        var id = Request.QueryString["ID"];
+        if (Session["Message" + id] == null)
         {
-            Session["Message"] = "未知错误";
-            Session["Redirect"] = ResolveUrl("~/Manage/Index.aspx");
+            Session["Message" + id] = "未知错误";
+            Session["Redirect" + id] = ResolveUrl("~/Manage/Index.aspx");
         }
 
-        var redirect = Session["Redirect"];
+        var redirect = Session["Redirect" + id];
         if (redirect != null)
         {
             var autoRefresh = new HtmlMeta();
@@ -27,6 +28,6 @@ public partial class Manage_Message : System.Web.UI.Page
             ctRedirect.Visible = true;
             ctRedirect.NavigateUrl = redirect.ToString();
         }
-        ctMessage.Text = Session["Message"].ToString();
+        ctMessage.Text = Session["Message" + id].ToString();
     }
 }

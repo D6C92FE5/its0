@@ -166,12 +166,13 @@ public static class _
     /// <param name="redirect">显示信息后的自动重定向到的页面</param>
     public static void ShowMessagePage(string message, string redirect = null, bool endResponse = false)
     {
-        Session["Message"] = PrepareForHtml(message);
+        var id = _.ComputeHmac(Guid.NewGuid().ToString(), Config.HmacStaticKey).Substring(0, 4);
+        Session["Message" + id] = PrepareForHtml(message);
         if (redirect != null)
         {
-            Session["Redirect"] = Page.ResolveUrl(redirect);
+            Session["Redirect" + id] = Page.ResolveUrl(redirect);
         }
-        Redirect("Message.aspx", endResponse);
+        Redirect("Message.aspx?ID=" + id, endResponse);
     }
 
     /// <summary>
