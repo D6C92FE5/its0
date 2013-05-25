@@ -227,7 +227,7 @@ public static class _
                 if (int.TryParse(idString, out id))
                 {
                     var user = DB.GetUser(id);
-                    if (user.Password == password)
+                    if (user != null && user.Password == password)
                     {
                         _.User = user;
                     }
