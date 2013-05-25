@@ -53,7 +53,8 @@ public partial class Manage_Login : System.Web.UI.Page
         }
 
         var user = DB.GetUser(ctName.Text);
-        if (user.Password == _.ComputeHmac(ctPasswordHashed.Value, user.PasswordSalt))
+        if (user != null && 
+            user.Password == _.ComputeHmac(ctPasswordHashed.Value, user.PasswordSalt))
         {
             // 登录
             _.User = user;
