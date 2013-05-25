@@ -35,7 +35,6 @@ public static class DB
             dlo.LoadWith<Article>(a => a.Category);
             dc.LoadOptions = dlo;
             var articles = dc.Article.AsQueryable();
-            articles = articles.Distinct(); // 兼容 SQL Server 2000
             articles = articles.OrderByDescending(a => a.PostDate);
             if (categoryID != 0)
             {
@@ -212,7 +211,6 @@ public static class DB
             dlo.LoadWith<User>(a => a.Permission);
             dc.LoadOptions = dlo;
             var users = dc.User.AsQueryable();
-            users = users.Distinct(); // 兼容 SQL Server 2000
             users = users.OrderBy(u => u.ID);
             if (permissionID != 0)
             {
@@ -341,7 +339,6 @@ public static class DB
         {
             dc.ObjectTrackingEnabled = false;
             var logs = dc.Log.AsQueryable();
-            logs = logs.Distinct(); // 兼容 SQL Server 2000
             logs = logs.OrderByDescending(l => l.Time);
             if (userID != 0)
             {
