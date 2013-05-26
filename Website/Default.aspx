@@ -13,6 +13,7 @@
         <asp:Button ID="ctInitDatabase" runat="server" Text="创建并初始化数据库" 
             CssClass="btn btn-large btn-success" OnClick="ctInitDatabase_Click" />
     </form>
+    <p>初始用户名 ad , 初始密码 1</p>
 </asp:Content>
 <asp:Content ID="ctScript" ContentPlaceHolderID="_Script" Runat="Server">
 </asp:Content>
