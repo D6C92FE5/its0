@@ -24,16 +24,10 @@ public partial class _Default : System.Web.UI.Page
                 dc.CreateDatabase();
 
                 // 添加权限
-                var permisssion = new UserPermission();
-                permisssion.Name = "文章和用户";
-                permisssion.Article = true;
-                permisssion.User = true;
-                dc.UserPermission.InsertOnSubmit(permisssion);
-                permisssion = new UserPermission();
-                permisssion.Name = "文章";
-                permisssion.Article = true;
-                permisssion.User = false;
-                dc.UserPermission.InsertOnSubmit(permisssion);
+                dc.UserPermission.InsertOnSubmit(
+                    new UserPermission { Name = "文章和用户", Article = true, User = true });
+                dc.UserPermission.InsertOnSubmit(
+                    new UserPermission { Name = "文章", Article = true, User = false });
                 dc.SubmitChanges();
 
                 // 添加初始用户
