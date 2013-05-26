@@ -137,6 +137,14 @@ public static class DB
             return dc.ArticleCategory.OrderBy(a => a.Name).ToArray();
         }
     }
+    public static int GetArticleCategoryCount()
+    {
+        using (var dc = new MainDataContext())
+        {
+            dc.ObjectTrackingEnabled = false;
+            return dc.ArticleCategory.Count();
+        }
+    }
     public static bool IsArticleCategoryHasArticle(int id)
     {
         using (var dc = new MainDataContext())

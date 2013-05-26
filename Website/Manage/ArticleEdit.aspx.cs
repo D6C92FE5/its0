@@ -53,6 +53,12 @@ public partial class Manage_ArticleEdit : System.Web.UI.Page
             }
         }
 
+        if (isNewArticle && DB.GetArticleCategoryCount() == 0)
+        {
+            _.ShowMessagePage("请首先添加文章分类");
+            return;
+        }
+
         if (!IsPostBack)
         {
             //标题
