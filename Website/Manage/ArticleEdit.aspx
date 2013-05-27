@@ -32,6 +32,16 @@
             margin-left: -10px;
         }
     </style>
+
+    <!--[if lte IE 6]>
+    <style>
+        /* CKEditor 不兼容 IE6 */
+        form textarea {
+            display: inline-block!important;
+            visibility: visible!important;
+        }
+    </style>
+    <![endif]-->
 </asp:Content>
 <asp:Content ID="ctBody" ContentPlaceHolderID="_Body" Runat="Server">
     <h1><%= isNewArticle ? "发布文章" : "修改文章" %></h1>
