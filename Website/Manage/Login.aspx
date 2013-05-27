@@ -13,7 +13,7 @@
             min-width: 400px;
         }
         .container form {
-            max-width: 300px;
+            width: 300px;
             padding: 19px 29px 29px;
             margin: 0 auto 20px;
             background-color: #fff;
