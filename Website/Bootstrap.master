@@ -35,6 +35,16 @@
         </asp:ContentPlaceHolder>
     </head>
     <body>
+        <!--[if lt IE 8]>
+        <div class="alert" style="margin: 0 10px 10px; text-align: center;">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            您正在使用<strong>过时的</strong>浏览器，
+            请 <a href="http://browsehappy.com/">升级您的浏览器</a> 或
+            <a href="http://www.google.com/chromeframe/?redirect=true">使用谷歌浏览器内嵌框架</a>
+            来改善您的体验。
+        </div>
+        <![endif]-->
+
         <asp:ContentPlaceHolder id="_Body" runat="server">
         </asp:ContentPlaceHolder>
 
