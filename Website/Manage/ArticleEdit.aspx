@@ -61,6 +61,9 @@
     <asp:PlaceHolder ID="ctHideField" runat="server">
         <label class="checkbox inline"><asp:CheckBox ID="ctHide" runat="server" />隐藏</label>
     </asp:PlaceHolder>
+    <!--[if lte IE 6]>
+    <p>您的浏览器严重过时，不支持所见即所得的编辑方式，请直接在下面的文本框中输入HTML代码</p>
+    <![endif]-->
     <CKEditor:CKEditorControl ID="ctContent" runat="server" Height="300px" 
         BasePath="~/Package/CKEditor"></CKEditor:CKEditorControl>
     <asp:Button ID="ctSubmit" runat="server" Text="提交" CssClass="btn btn-primary" OnClick="ctSubmit_OnClick" />
