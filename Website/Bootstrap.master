@@ -26,6 +26,11 @@
 	        $.webshims.polyfill('es5 forms');
 	    </script>
 
+        <!--[if lte IE 6]>
+        <link rel="stylesheet" type="text/css" href="~/Package/bsie/css/bootstrap-ie6.min.css">
+        <link rel="stylesheet" type="text/css" href="~/Package/bsie/css/ie.css">
+        <![endif]-->
+
         <asp:ContentPlaceHolder id="_Head" runat="server">
         </asp:ContentPlaceHolder>
     </head>
@@ -36,5 +41,9 @@
 	    <%= _.PackageScriptTag("Bootstrap/js/bootstrap.js") %>
         <asp:ContentPlaceHolder id="_Script" runat="server">
         </asp:ContentPlaceHolder>
+
+        <!--[if lte IE 6]>
+        <%= _.PackageScriptTag("bsie/js/bootstrap-ie.js") %>
+        <![endif]-->
     </body>
 </html>
