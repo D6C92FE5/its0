@@ -42,6 +42,7 @@ public partial class Manage_UserList : System.Web.UI.Page
             .Done();
 
             DB.DelectUser(id);
+            _.UserChangeNotify(id);
         }
         _.Refresh();
     }

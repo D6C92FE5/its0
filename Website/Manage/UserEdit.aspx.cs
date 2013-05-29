@@ -88,6 +88,7 @@ public partial class Manage_UserEdit : System.Web.UI.Page
         .Done();
 
         DB.SetUser(user);
+        _.UserChangeNotify(user.ID);
 
         _.ShowMessagePage(isNewUser ? "添加用户成功" : "修改用户成功", "UserList.aspx");
     }

@@ -8,6 +8,7 @@ using System.Web.SessionState;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
+using System.Web.Caching;
 
 /// <summary>
 /// Helper!
@@ -70,6 +71,17 @@ public static class _
     }
 
     /// <summary>
+    /// 获取当前应用程序域的 Cache 对象
+    /// </summary>
+    private static Cache Cache
+    {
+        get
+        {
+            return HttpContext.Current.Cache;
+        }
+    }
+
+    /// <summary>
     /// 获取或设置当前登录的用户
     /// </summary>
     public static User User
@@ -81,6 +93,7 @@ public static class _
         set
         {
             Session["User"] = value;
+            Session["UserTime"] = DateTime.Now;
         }
     }
 
@@ -211,11 +224,33 @@ public static class _
     }
 
     /// <summary>
+    /// 用户发生变化（修改、删除）的通知，被已登录用户接收
+    /// </summary>
+    /// <param name="id">用户 ID</param>
+    public static void UserChangeNotify(int id)
+    {
+        var now = DateTime.Now;
+        Cache.Insert("UserChangeNotify" + id, now, null,
+            now.AddMinutes(Session.Timeout), Cache.NoSlidingExpiration);
+    }
+
+    /// <summary>
     /// 检查 Session 和 Cookies 判断是否已经登录
     /// </summary>
     /// <returns></returns>
     public static bool CheckLogin()
     {
+        // 用户发生变化（修改、删除）时重置登录状态
+        if (_.User != null && Cache["UserChangeNotify" + _.User.ID] != null)
+        {
+            var changeTime = (DateTime)Cache["UserChangeNotify" + _.User.ID];
+            var loginTime = (DateTime)Session["UserTime"];
+            if (loginTime < changeTime)
+            {
+                _.User = null;
+            }
+        }
+        
         if (_.User == null)
         {
             var cookie = Request.Cookies["User"];
