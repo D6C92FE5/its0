@@ -71,6 +71,7 @@ public partial class Manage_ArticleCategoryEdit : System.Web.UI.Page
         new Validator(isNewCategory ? "添加文章分类失败" : "修改文章分类失败")
         .Check(() => category.Name == "", "请填写分类名")
         .Check(() => category.Name.Length > Config.ArticleCategoryNameMaxLength, "分类名过长")
+        .Check(() => DB.IsArticleCategoryExist(category.Name, category.ID), "文章分类名已存在")
         .Done();
 
         DB.SetArticleCategory(category);

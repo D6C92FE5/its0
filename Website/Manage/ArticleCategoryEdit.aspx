@@ -23,6 +23,11 @@
     </div>
     <asp:Button ID="ctSubmit" runat="server" Text="提交" CssClass="btn btn-primary" 
         OnClick="ctSubmit_Click" />
+    <asp:ScriptManager ID="ctScriptManager" runat="server">
+        <Services>
+            <asp:ServiceReference Path="~/WebService.asmx" />
+        </Services>
+    </asp:ScriptManager>
 </asp:Content>
 <asp:Content ID="ctScript" ContentPlaceHolderID="_Script" Runat="Server">
     <%= _.PackageScriptTag("jQuery.Validate/jquery.validate.min.js") %>
@@ -34,6 +39,18 @@
                     rule: [{
                         method: 'required',
                         message: "请填写分类名"
+                    }, {
+                        method: 'async',
+                        argument: {
+                            call: function (value, callback) {
+                                if (value == '<%= ctName.Text %>') {
+                                    setTimeout(function () { callback(true) })
+                                } else {
+                                    WebService.IsArticleCategoryExist(value, callback)
+                                }
+                            }
+                        },
+                        message: "文章分类名已存在"
                     }],
                     popover_placement: 'top'
                 }, 

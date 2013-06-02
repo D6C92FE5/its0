@@ -24,9 +24,19 @@ public class WebService : System.Web.Services.WebService {
     /// </summary>
     /// <param name="name">用户名</param>
     /// <returns>用户名是否已经被使用</returns>
-    [WebMethod]
+    [WebMethod(EnableSession=true)]
     public bool IsUserNameNotUsed(string name) {
-        return !DB.IsUserNameExist(name);
+        return _.CheckLogin() && !DB.IsUserNameExist(name);
     }
 
+    /// <summary>
+    /// 判断文章分类名是否已存在
+    /// </summary>
+    /// <param name="name">文章分类名</param>
+    /// <returns>文章分类名是否已存在</returns>
+    [WebMethod(EnableSession = true)]
+    public bool IsArticleCategoryExist(string name)
+    {
+        return _.CheckLogin() && !DB.IsArticleCategoryExist(name);
+    }
 }

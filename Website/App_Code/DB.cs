@@ -145,6 +145,17 @@ public static class DB
             return dc.ArticleCategory.Count();
         }
     }
+    public static bool IsArticleCategoryExist(string name, int ignoredCategory = 0)
+    {
+        using (var dc = new MainDataContext())
+        {
+            dc.ObjectTrackingEnabled = false;
+            var categories = dc.ArticleCategory.AsQueryable();
+            categories = categories.Where(a => a.ID != ignoredCategory);
+            categories = categories.Where(a => a.Name == name);
+            return categories.Count() > 0;
+        }
+    }
     public static bool IsArticleCategoryHasArticle(int id)
     {
         using (var dc = new MainDataContext())
