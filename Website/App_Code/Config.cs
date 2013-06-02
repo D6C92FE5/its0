@@ -35,15 +35,15 @@ public static class Config
     /// <summary>
     /// 是否启用文章置顶功能
     /// </summary>
-    public static readonly bool ArticleTopEnabled = true;
+    public static readonly bool ArticleTopEnabled = false;
     /// <summary>
     /// 是否启用文章推荐功能
     /// </summary>
-    public static readonly bool ArticleRecommendEnabled = true;
+    public static readonly bool ArticleRecommendEnabled = false;
     /// <summary>
     /// 是否启用文章隐藏功能
     /// </summary>
-    public static readonly bool ArticleHideEnabled = true;
+    public static readonly bool ArticleHideEnabled = false;
     /// <summary>
     /// 文章标题的最大长度
     /// </summary>
