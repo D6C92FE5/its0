@@ -46,9 +46,7 @@
 <asp:Content ID="ctBody" ContentPlaceHolderID="_Body" Runat="Server">
     <h1><%= isNewArticle ? "发布文章" : "修改文章" %></h1>
     <div class="controls controls-row">
-        <asp:DropDownList ID="ctCategory" runat="server" CssClass="span2">
-            <asp:ListItem Value="">分类</asp:ListItem>
-        </asp:DropDownList>
+        <asp:DropDownList ID="ctCategory" runat="server" CssClass="span2"></asp:DropDownList>
         <asp:TextBox ID="ctTitle" runat="server" placeholder="标题" CssClass="span7"></asp:TextBox>
         <asp:TextBox ID="ctFrom" runat="server" placeholder="来源" CssClass="span3"></asp:TextBox>
     </div>

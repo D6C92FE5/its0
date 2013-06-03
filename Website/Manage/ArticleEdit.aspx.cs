@@ -72,6 +72,10 @@ public partial class Manage_ArticleEdit : System.Web.UI.Page
             ctHideField.Visible = Config.ArticleHideEnabled;
 
             //载入分类
+            if (isNewArticle)
+            {
+                ctCategory.Items.Add(new ListItem("分类", ""));
+            }
             foreach (var category in DB.GetArticleCategories())
             {
                 ctCategory.Items.Add(new ListItem(category.Name, category.ID.ToString()));
