@@ -30,6 +30,9 @@ form {
 .navbar a:focus i {
     opacity: 1.0;
 }
+.navbar .open i {
+    opacity: 1.0;
+}
 
 .dropdown-menu {
     min-width: 130px;
