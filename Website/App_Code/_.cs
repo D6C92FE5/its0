@@ -245,9 +245,10 @@ public static class _
         {
             var changeTime = (DateTime)Cache["UserChangeNotify" + _.User.ID];
             var loginTime = (DateTime)Session["UserTime"];
-            if (loginTime < changeTime)
+            if (loginTime < changeTime && _.User != null)
             {
-                _.User = null;
+                var user = DB.GetUser(_.User.ID);
+                _.User = (user != null && user.Password == _.User.Password) ? user : null;
             }
         }
         
