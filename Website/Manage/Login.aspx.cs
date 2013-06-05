@@ -40,7 +40,7 @@ public partial class Manage_Login : System.Web.UI.Page
                 DateTime.Today.AddDays(1), Cache.NoSlidingExpiration);
         }
         var attempts = Cache[key] as ConcurrentQueue<DateTime>;
-        var timestart = DateTime.Now.AddMinutes(10);
+        var timestart = DateTime.Now.AddMinutes(-10);
         if (attempts.Where(d => d > timestart).Count() >= 5 || attempts.Count() >= 20)
         {
             // 10分钟内5次或者当天20次失败后拒绝登录请求
