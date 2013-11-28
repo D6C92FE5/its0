@@ -303,5 +303,10 @@ CKFinder.lang['pl'] =
 		removeAndExtract	: 'Usuń poprzedni i wypakuj',
 		extractAndOverwrite	: 'Wypakuj do bieżącego nadpisując istniejące pliki',
 		extractSuccess		: 'Plik został pomyślnie wypakowany.'
+	},
+
+	Search :
+	{
+		searchPlaceholder : 'Szukaj'
 	}
 };

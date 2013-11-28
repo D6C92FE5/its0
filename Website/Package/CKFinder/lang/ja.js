@@ -303,5 +303,10 @@ CKFinder.lang['ja'] =
 		removeAndExtract	: '既存のファイルを削除して解凍しました。',
 		extractAndOverwrite	: '解凍して既存のファイルに上書きしました。',
 		extractSuccess		: '解凍が完了しました。'
+	},
+
+	Search :
+	{
+		searchPlaceholder : '検索'
 	}
 };

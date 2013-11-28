@@ -303,5 +303,10 @@ CKFinder.lang['en'] =
 		removeAndExtract	: 'Remove existing and extract',
 		extractAndOverwrite	: 'Extract overwriting existing files',
 		extractSuccess		: 'File extracted successfully.'
+	},
+
+	Search :
+	{
+		searchPlaceholder : 'Search'
 	}
 };

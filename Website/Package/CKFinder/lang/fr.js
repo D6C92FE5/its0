@@ -303,5 +303,10 @@ CKFinder.lang['fr'] =
 		removeAndExtract	: 'Supprimer les fichiers existants et décompresser',
 		extractAndOverwrite	: 'Décompresser et remplacer les fichier existants',
 		extractSuccess		: 'Les fichiers ont été décompressés avec succès.'
+	},
+
+	Search :
+	{
+		searchPlaceholder : 'Rechercher'
 	}
 };

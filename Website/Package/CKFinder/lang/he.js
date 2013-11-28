@@ -303,5 +303,10 @@ CKFinder.lang['he'] =
 		removeAndExtract	: 'מחיקת הקובץ וחילוצו',
 		extractAndOverwrite	: 'חילוץ והחלפת קבצים קיימים',
 		extractSuccess		: 'הקבצים חולצו בהצלחה.'
+	},
+
+	Search :
+	{
+		searchPlaceholder : 'חיפוש'
 	}
 };

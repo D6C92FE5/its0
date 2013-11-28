@@ -303,5 +303,10 @@ CKFinder.lang['hu'] =
 		removeAndExtract	: 'Létező törlése és kicsomagolás',
 		extractAndOverwrite	: 'Létező felülírása és kicsomagolás',
 		extractSuccess		: 'A fájl kicsomagolása megtörtént.'
+	},
+
+	Search :
+	{
+		searchPlaceholder : 'Keresés'
 	}
 };

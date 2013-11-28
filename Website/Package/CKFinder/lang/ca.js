@@ -303,5 +303,10 @@ CKFinder.lang['ca'] =
 		removeAndExtract	: 'Eliminar els existents i extreure',
 		extractAndOverwrite	: 'Extreure sobreescrivint els fitxers existents',
 		extractSuccess		: 'Fitxer extret correctament.'
+	},
+
+	Search :
+	{
+		searchPlaceholder : 'Cerca'
 	}
 };

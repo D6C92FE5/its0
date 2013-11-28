@@ -69,10 +69,11 @@ var CKBUILDER_CONFIG = {
 		'showborders' : 1,
 		'font' : 1,
 		'justify' : 1,
-		'find' : 1
+		'find' : 1,
+		'indentlist' : 1
 	},
 	languages : {
 		'zh-cn' : 1,
-		'en' : 1,
+		'en' : 1
 	}
 };

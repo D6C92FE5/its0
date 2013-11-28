@@ -10,7 +10,7 @@
 
         <link rel="stylesheet" href="~/Package/Bootstrap/css/bootstrap.css">
 
-        <%# _.PackageScriptTag("jQuery/jquery-1.9.1.min.js") %>
+        <%# _.PackageScriptTag("jQuery/jquery-1.10.2.min.js") %>
         
 	    <script>
 	        // set options for html5shiv
