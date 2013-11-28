@@ -15,9 +15,9 @@ public class Validator
     /// </summary>
     /// <param name="errorMessage">出错时显示的错误信息</param>
     public Validator(string errorMessage = "")
-	{
+    {
         errorList.Add(errorMessage);
-	}
+    }
 
     /// <summary>
     /// 检测一项
