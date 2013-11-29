@@ -2,45 +2,45 @@
   <Connection Mode="WebSettings" ConnectionString="Data Source=(localdb)\v11.0;Initial Catalog=its0;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Main" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Article" Member="Article">
     <Type Name="Article">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="PublisherID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="Title" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="[From]" Member="From" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PublisherID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="[From]" Member="From" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Content" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="PostDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="EditDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="ViewCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="IsTop" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="IsRecommend" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="IsHide" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="PostDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EditDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ViewCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsTop" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsRecommend" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsHide" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="ArticleCategory_Article" Member="Category" ThisKey="CategoryID" OtherKey="ID" Type="ArticleCategory" IsForeignKey="true" />
       <Association Name="User_Article" Member="Publisher" ThisKey="PublisherID" OtherKey="ID" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ArticleCategory" Member="ArticleCategory">
     <Type Name="ArticleCategory">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Association Name="ArticleCategory_Article" Member="Article" ThisKey="ID" OtherKey="CategoryID" Type="Article" />
     </Type>
   </Table>
   <Table Name="dbo.UserPermission" Member="UserPermission">
     <Type Name="UserPermission">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="Article" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="[User]" Member="User" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Article" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[User]" Member="User" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="UserPermission_User" Member="User_" Storage="_User1" ThisKey="ID" OtherKey="PermissionID" Type="User" />
     </Type>
   </Table>
   <Table Name="dbo.[User]" Member="User">
     <Type Name="User">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="Password" Type="System.String" DbType="NChar(40) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="PasswordSalt" Type="System.String" DbType="NChar(32) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="PermissionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Member="__Password" Storage="_Password" Type="System.String" DbType="NChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordSalt" Type="System.String" DbType="NChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="PermissionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="User_Article" Member="Article" ThisKey="ID" OtherKey="PublisherID" Type="Article" />
       <Association Name="UserPermission_User" Member="Permission" ThisKey="PermissionID" OtherKey="ID" Type="UserPermission" IsForeignKey="true" />
     </Type>
