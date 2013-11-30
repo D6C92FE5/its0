@@ -15,6 +15,8 @@ using System.Web.Caching;
 /// </summary>
 public static class _
 {
+    #region 页面上下文中的对象们
+
     /// <summary>
     /// 当前正在执行的页面
     /// </summary>
@@ -81,6 +83,8 @@ public static class _
         }
     }
 
+    #endregion
+
     /// <summary>
     /// 获取或设置当前登录的用户
     /// </summary>
@@ -142,7 +146,7 @@ public static class _
                 query.Remove(field);
             }
         }
-        return "?" + query.ToString();
+        return string.Format("{0}?{1}", Request.Url.AbsolutePath, query.ToString());
     }
 
     /// <summary>
@@ -159,6 +163,7 @@ public static class _
     /// 将客户端重定向到新的 URL (首先将 URL 转换为在请求客户端可用的 URL)
     /// </summary>
     /// <param name="url">目标位置</param>
+    /// <param name="endResponse">如果为 true，则终止当前进程</param>
     public static void Redirect(string url, bool endResponse = false)
     {
         Response.Redirect(Page.ResolveUrl(url), endResponse);
@@ -167,9 +172,10 @@ public static class _
     /// <summary>
     /// 刷新页面
     /// </summary>
-    public static void Refresh()
+    /// <param name="endResponse">如果为 true，则终止当前进程</param>
+    public static void Refresh(bool endResponse = false)
     {
-        Response.Redirect(Request.RawUrl);
+        Redirect(Request.RawUrl, endResponse);
     }
 
     /// <summary>
@@ -177,6 +183,7 @@ public static class _
     /// </summary>
     /// <param name="message">信息</param>
     /// <param name="redirect">显示信息后的自动重定向到的页面</param>
+    /// <param name="endResponse">如果为 true，则终止当前进程</param>
     public static void ShowMessagePage(string message, string redirect = null, bool endResponse = false)
     {
         var id = _.ComputeHmac(Guid.NewGuid().ToString(), Config.HmacStaticKey).Substring(0, 4);
@@ -189,15 +196,23 @@ public static class _
     }
 
     /// <summary>
+    /// 向 Page 对象注册启动脚本
+    /// </summary>
+    /// <param name="script">要注册的启动脚本文本</param>
+    public static void RegisterStartupScript(string script)
+    {
+        Page.ClientScript.RegisterStartupScript(Page.GetType(),
+            Guid.NewGuid().ToString(), script + ';', true);
+    }
+
+    /// <summary>
     /// 显示带有一段消息和一个确认按钮的警告框
     /// </summary>
-    /// <param name="page">当前页面</param>
     /// <param name="message">弹出的对话框中显示的纯文本</param>
     public static void ShowAlert(string message)
     {
-        message = message.Replace('\'', '_');
-        Page.ClientScript.RegisterStartupScript(Page.GetType(), "message",
-            "<script>alert('" + message + "');</script>");
+        message = message.Replace("'", "\\'");
+        RegisterStartupScript(string.Format("alert('{0}')", message));
     }
 
     /// <summary>
