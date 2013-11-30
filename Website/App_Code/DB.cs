@@ -118,7 +118,7 @@ public static class DB
         dc.SubmitChanges();
         AddLog(article.ID, "Article", description);
     }
-    public static void DelectArticle(int id)
+    public static void DeleteArticle(int id)
     {
         var article = dc.Article.SingleOrDefault(a => a.ID == id);
         if (article != null)
@@ -239,7 +239,7 @@ public static class DB
         dc.SubmitChanges();
         AddLog(user.ID, "User", description);
     }
-    public static void DelectUser(int id)
+    public static void DeleteUser(int id)
     {
         User user = dc.User.SingleOrDefault(u => u.ID == id);
         if (user != null)

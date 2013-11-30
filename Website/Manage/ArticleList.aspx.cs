@@ -36,7 +36,7 @@ public partial class Manage_ArticleList : System.Web.UI.Page
         var id = 0;
         if (int.TryParse(e.CommandArgument.ToString(), out id))
         {
-            DB.DelectArticle(id);
+            DB.DeleteArticle(id);
         }
         _.Refresh();
     }

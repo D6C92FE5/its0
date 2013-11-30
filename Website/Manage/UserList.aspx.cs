@@ -41,7 +41,7 @@ public partial class Manage_UserList : System.Web.UI.Page
                 "此用户是当前唯一具有用户管理权限的用户")
             .Done();
 
-            DB.DelectUser(id);
+            DB.DeleteUser(id);
             _.UserChangeNotify(id);
         }
         _.Refresh();
