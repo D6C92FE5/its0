@@ -3,8 +3,6 @@
 <%@ Register Src="~/Manage/Paginator.ascx" TagPrefix="uc1" TagName="Paginator" %>
 <%@ Register Src="~/Manage/ListFilter.ascx" TagPrefix="uc1" TagName="ListFilter" %>
 
-
-
 <asp:Content ID="ctHead" ContentPlaceHolderID="_Head" Runat="Server">
     <style>
         .new_user {
