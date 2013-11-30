@@ -14,7 +14,7 @@ public partial class Manage_Message : System.Web.UI.Page
         if (Session["Message" + id] == null)
         {
             Session["Message" + id] = "未知错误";
-            Session["Redirect" + id] = ResolveUrl("~/Manage/Index.aspx");
+            Session["Redirect" + id] = "Index.aspx";
         }
 
         var redirect = Session["Redirect" + id];
