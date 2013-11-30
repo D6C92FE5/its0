@@ -121,9 +121,9 @@ public static class _
     /// </summary>
     /// <param name="source">源字符串</param>
     /// <returns>替换后的字符串</returns>
-    public static string PrepareForHtml(string source)
+    public static string PrepareForHtml(object source)
     {
-        return HttpUtility.HtmlEncode(source).Replace(" ", "&nbsp;").Replace("\n", "<br />");
+        return HttpUtility.HtmlEncode(source.ToString()).Replace(" ", "&nbsp;").Replace("\n", "<br />");
     }
 
     /// <summary>
