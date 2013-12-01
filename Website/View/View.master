@@ -1,0 +1,19 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="View.master.cs" Inherits="View_View" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>主页</title>
+    <asp:ContentPlaceHolder id="_Head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <asp:ContentPlaceHolder id="_Content" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <asp:ContentPlaceHolder id="_Script" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>
