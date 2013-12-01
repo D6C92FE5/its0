@@ -9,6 +9,7 @@
 </asp:Content>
 <asp:Content ID="ctBody" ContentPlaceHolderID="_Body" Runat="Server">
     <form runat="server">
+        <a class="btn btn-large btn-primary" href="View/Index.aspx">网站主页</a>
         <a class="btn btn-large btn-primary" href="Manage/Index.aspx">网站管理系统</a>
         <asp:Button ID="ctInitDatabase" runat="server" Text="创建并初始化数据库" 
             CssClass="btn btn-large btn-success" OnClick="ctInitDatabase_Click" />

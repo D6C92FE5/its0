@@ -45,6 +45,10 @@ public static class Config
     /// </summary>
     public static readonly bool ArticleHideEnabled = false;
     /// <summary>
+    /// 是否启用文章图片滚动功能
+    /// </summary>
+    public static readonly bool ArticlePictureScrollEnabled = false;
+    /// <summary>
     /// 文章标题的最大长度
     /// </summary>
     public static readonly int ArticleTitleMaxLength = 100;

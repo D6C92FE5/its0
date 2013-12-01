@@ -19,26 +19,23 @@ public partial class _Default : System.Web.UI.Page
     {
         using (var dc = new MainDataContext())
         {
-            if (!dc.DatabaseExists())
-            {
-                dc.CreateDatabase();
+            dc.CreateDatabase();
 
-                // 添加权限
-                dc.UserPermission.InsertOnSubmit(
-                    new UserPermission { Name = "文章和用户", Article = true, User = true });
-                dc.UserPermission.InsertOnSubmit(
-                    new UserPermission { Name = "文章", Article = true, User = false });
-                dc.SubmitChanges();
-
-                // 添加初始用户
-                var user = new User();
-                user.Name = "ad";
-                user.Password = _.ComputeHmac("1", Config.HmacStaticKey);
-                user.Permission = dc.UserPermission.First();
-                DB.SetUser(user);
-
-                _.Refresh();
-            }
+            // 添加权限
+            dc.UserPermission.InsertOnSubmit(
+                new UserPermission { Name = "文章和用户", Article = true, User = true });
+            dc.UserPermission.InsertOnSubmit(
+                new UserPermission { Name = "文章", Article = true, User = false });
+            dc.SubmitChanges();
         }
+
+        // 添加初始用户
+        var user = new User();
+        user.Name = "ad";
+        user.Password = _.ComputeHmac("1", Config.HmacStaticKey);
+        user.Permission = DB.GetUserPermissions()[0];
+        DB.SetUser(user);
+
+        _.Refresh();
     }
 }

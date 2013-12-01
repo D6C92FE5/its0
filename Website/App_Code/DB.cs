@@ -62,10 +62,10 @@ public static class DB
     public static Article[] GetArticles(
         int page = 1, int pageSize = 0,
         int categoryID = 0,
-        int publisherID = 0)
+        int publisherID = 0,
+        bool enableAttribute = false)
     {
         var articles = dc.Article.AsQueryable();
-        articles = articles.OrderByDescending(a => a.PostDate);
         if (categoryID != 0)
         {
             articles = articles.Where(a => a.CategoryID == categoryID);
@@ -73,6 +73,42 @@ public static class DB
         if (publisherID != 0)
         {
             articles = articles.Where(a => a.PublisherID == publisherID);
+        }
+        articles = articles.OrderByDescending(a => a.PostDate);
+        if (enableAttribute)
+        {
+            articles = articles.Where(a => !a.IsHide);
+            articles = articles.OrderByDescending(a => a.IsTop);
+        }
+        if (pageSize != 0)
+        {
+            articles = articles.Skip(pageSize * (page - 1)).Take(pageSize);
+        }
+        return articles.ToArray();
+    }
+    public static Article[] GetArticlesByCategoryName(
+        int page = 1, int pageSize = 0,
+        string categoryName = null,
+        bool enableAttribute = false)
+    {
+        var categoryID = DB.GetArticleCategoryIDByName(categoryName);
+        if (categoryName != null && categoryID == 0)
+        {
+            categoryID = -1;
+        }
+        return GetArticles(page, pageSize, categoryID, 0, enableAttribute);
+    }
+    public static Article[] GetArticlesContainedImage(
+        int page = 1, int pageSize = 0,
+        bool enableAttribute = false)
+    {
+        var articles = dc.Article.AsQueryable();
+        articles = articles.Where(a => a.PictureScroll != null);
+        articles = articles.OrderByDescending(a => a.PostDate);
+        if (enableAttribute)
+        {
+            articles = articles.Where(a => !a.IsHide);
+            articles = articles.OrderByDescending(a => a.IsTop);
         }
         if (pageSize != 0)
         {
@@ -82,7 +118,8 @@ public static class DB
     }
     public static int GetArticleCount(
         int categoryID = 0,
-        int publisherID = 0)
+        int publisherID = 0,
+        bool enableAttribute = false)
     {
         var articles = dc.Article.AsQueryable();
         if (categoryID != 0)
@@ -93,7 +130,22 @@ public static class DB
         {
             articles = articles.Where(a => a.PublisherID == publisherID);
         }
+        if (enableAttribute)
+        {
+            articles = articles.Where(a => !a.IsHide);
+        }
         return articles.Count();
+    }
+    public static int GetArticleCountByCategoryName(
+        string categoryName = null,
+        bool enableAttribute = false)
+    {
+        var categoryID = DB.GetArticleCategoryIDByName(categoryName);
+        if (categoryName != null && categoryID == 0)
+        {
+            categoryID = -1;
+        }
+        return GetArticleCount(categoryID, 0, enableAttribute);
     }
     public static int GetMyLastArticleID()
     {
@@ -134,6 +186,10 @@ public static class DB
     public static ArticleCategory GetArticleCategory(int id)
     {
         return dc.ArticleCategory.SingleOrDefault(a => a.ID == id);
+    }
+    public static int GetArticleCategoryIDByName(string name)
+    {
+        return dc.ArticleCategory.Where(a => a.Name == name).Select(a => a.ID).SingleOrDefault();
     }
     public static ArticleCategory[] GetArticleCategories()
     {

@@ -14,6 +14,7 @@
       <Column Name="IsTop" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="IsRecommend" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="IsHide" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PictureScroll" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Association Name="ArticleCategory_Article" Member="Category" ThisKey="CategoryID" OtherKey="ID" Type="ArticleCategory" IsForeignKey="true" />
       <Association Name="User_Article" Member="Publisher" ThisKey="PublisherID" OtherKey="ID" Type="User" IsForeignKey="true" />
     </Type>

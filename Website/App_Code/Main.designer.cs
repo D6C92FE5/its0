@@ -147,6 +147,8 @@ public partial class Article : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private bool _IsHide;
 	
+	private string _PictureScroll;
+	
 	private EntityRef<ArticleCategory> _Category;
 	
 	private EntityRef<User> _Publisher;
@@ -179,6 +181,8 @@ public partial class Article : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnIsRecommendChanged();
     partial void OnIsHideChanging(bool value);
     partial void OnIsHideChanged();
+    partial void OnPictureScrollChanging(string value);
+    partial void OnPictureScrollChanged();
     #endregion
 	
 	public Article()
@@ -432,6 +436,26 @@ public partial class Article : INotifyPropertyChanging, INotifyPropertyChanged
 				this._IsHide = value;
 				this.SendPropertyChanged("IsHide");
 				this.OnIsHideChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PictureScroll", DbType="NVarChar(100)")]
+	public string PictureScroll
+	{
+		get
+		{
+			return this._PictureScroll;
+		}
+		set
+		{
+			if ((this._PictureScroll != value))
+			{
+				this.OnPictureScrollChanging(value);
+				this.SendPropertyChanging();
+				this._PictureScroll = value;
+				this.SendPropertyChanged("PictureScroll");
+				this.OnPictureScrollChanged();
 			}
 		}
 	}

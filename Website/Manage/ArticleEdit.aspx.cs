@@ -70,6 +70,7 @@ public partial class Manage_ArticleEdit : System.Web.UI.Page
             ctTopField.Visible = Config.ArticleTopEnabled;
             ctRecommendField.Visible = Config.ArticleRecommendEnabled;
             ctHideField.Visible = Config.ArticleHideEnabled;
+            ctPictureScrollField.Visible = Config.ArticlePictureScrollEnabled;
 
             //载入分类
             if (isNewArticle)
@@ -92,6 +93,8 @@ public partial class Manage_ArticleEdit : System.Web.UI.Page
                 ctRecommend.Checked = article.IsRecommend;
                 ctHide.Checked = article.IsHide;
                 ctContent.Text = article.Content;
+                ctPictureScroll.Checked = article.PictureScroll != null;
+                ctPictureScrollUrl.Text = article.PictureScroll ?? "";
             }
 
             // CKFinder
@@ -114,6 +117,7 @@ public partial class Manage_ArticleEdit : System.Web.UI.Page
         article.IsTop = ctTop.Checked;
         article.IsRecommend = ctRecommend.Checked;
         article.IsHide = ctHide.Checked;
+        article.PictureScroll = ctPictureScroll.Checked ? ctPictureScrollUrl.Text : null;
 
         // 检查数据
         new Validator(isNewArticle ? "发布文章失败" : "修改文章失败")
