@@ -18,8 +18,8 @@ public partial class ExceptionLog : System.Web.UI.Page
                 Time = ex.Data["__its_exception_occur_time__"],
                 Type = ex.GetType(),
                 Url = ex.Data["__its_exception_url__"],
-                Message = _.PrepareForHtml(ex.Message),
-                StackTrace = _.PrepareForHtml(ex.StackTrace),
+                Message = _.EncodeHtml(ex.Message),
+                StackTrace = _.EncodeHtml(ex.StackTrace),
             };
         ctList.DataBind();
     }

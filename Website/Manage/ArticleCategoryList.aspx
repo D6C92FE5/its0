@@ -35,7 +35,7 @@
             <tr>
                 <td class="category">
                     <a href='ArticleList.aspx?Category=<%# Eval("ID") %>'>
-                        <%# Eval("Name") %>
+                        <%# _.EncodeHtml(Eval("Name")) %>
                     </a>
                 </td>
                 <td class="operate">

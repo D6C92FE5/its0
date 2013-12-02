@@ -9,7 +9,7 @@
     <asp:Literal ID="ctCategory" runat="server"></asp:Literal>
     <asp:Repeater ID="ctList" runat="server">
         <ItemTemplate>
-            <a href='Content.aspx?ID=<%# Eval("ID") %>'><%# Eval("Title") %></a>
+            <a href='Content.aspx?ID=<%# Eval("ID") %>'><%# _.EncodeHtml(Eval("Title")) %></a>
             <%# ((DateTime)Eval("PostDate")).ToString("yyyy/MM/dd") %>
         </ItemTemplate>
     </asp:Repeater>

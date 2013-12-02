@@ -117,13 +117,13 @@ public static class _
     }
 
     /// <summary>
-    /// 为在 HTML 中使用准备字符串，替换某些字符
+    /// 将对象的字符串表示形式转换为 HTML 编码的字符串，并返回编码的字符串
     /// </summary>
-    /// <param name="source">源字符串</param>
-    /// <returns>替换后的字符串</returns>
-    public static string PrepareForHtml(object source)
+    /// <param name="value">一个对象</param>
+    /// <returns>一个已编码的字符串</returns>
+    public static string EncodeHtml(object value)
     {
-        return HttpUtility.HtmlEncode(source.ToString()).Replace(" ", "&nbsp;").Replace("\n", "<br />");
+        return HttpUtility.HtmlEncode(value);
     }
 
     /// <summary>
@@ -187,7 +187,7 @@ public static class _
     public static void ShowMessagePage(string message, string redirect = null, bool endResponse = false)
     {
         var id = _.ComputeHmac(Guid.NewGuid().ToString(), Config.HmacStaticKey).Substring(0, 4);
-        Session["Message" + id] = PrepareForHtml(message);
+        Session["Message" + id] = EncodeHtml(message);
         if (redirect != null)
         {
             Session["Redirect" + id] = Page.ResolveUrl(redirect);

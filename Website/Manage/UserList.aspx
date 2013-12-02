@@ -58,11 +58,11 @@
                 <ItemTemplate>
             <tr>
                 <td class="username">
-                    <%# Eval("Name") %>
+                    <%# _.EncodeHtml(Eval("Name")) %>
                 </td>
                 <td class="permission">
                     <a href='<%# ctFilterPermission.Url(Eval("Permission.ID").ToString()) %>'>
-                        <%# Eval("Permission.Name") %>
+                        <%# _.EncodeHtml(Eval("Permission.Name")) %>
                     </a>
                 </td>
                 <td class="operate">

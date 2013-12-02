@@ -19,6 +19,13 @@ form {
     visibility: hidden!important;
 }
 
+.pre {
+    white-space: pre;
+}
+.pre-wrap {
+    white-space: pre-wrap;
+}
+
 .sidebar-nav {
     padding: 9px 0;
 }

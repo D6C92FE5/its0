@@ -2,6 +2,13 @@
 
 <asp:Content ID="ctHead" ContentPlaceHolderID="_Head" Runat="Server">
     <style>
+        .pre {
+            white-space: pre;
+        }
+        .pre-wrap {
+            white-space: pre-wrap;
+        }
+
         a:hover {
             text-decoration: none;
             color: #08c;
@@ -20,7 +27,6 @@
         }
 
         ul p {
-            white-space:nowrap;
             margin: 0;
         }
 
@@ -47,7 +53,7 @@
                 <a class="accordion-toggle" data-toggle="collapse" href='#<%# Eval("ID") %>'>
                     <span class="label label-info"><%# Eval("Time") %></span>
                     <span class="label label-important"><%# ((Type)Eval("Type")).Name %></span>
-                    <%# Eval("Message") %>
+                    <span class="pre-wrap"><%# Eval("Message") %></span>
                 </a>
             </div>
             <div id='<%# Eval("ID") %>' class="accordion-body collapse">
@@ -71,7 +77,7 @@
                         </li>
                         <li>
                             <span>堆栈跟踪:</span>
-                            <p><%# Eval("StackTrace") %></p>
+                            <p class="pre"><%# Eval("StackTrace") %></p>
                         </li>
                     </ul>
                 </div>

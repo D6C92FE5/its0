@@ -50,18 +50,18 @@
             <tr>
                 <td class="category">
                     <a href='<%# ctFilterCategory.Url(Eval("Category.ID").ToString()) %>'>
-                        <%# Eval("Category.Name") %>
+                        <%# _.EncodeHtml(Eval("Category.Name")) %>
                     </a> 
                 </td>
                 <td class="title">
                     <a href='<%# ResolveUrl(string.Format(Config.ArtilceDisplayUrlTemplate, 
                         Eval("ID").ToString())) %>' target="_blank">
-                        <%# Eval("Title") %>
+                        <%# _.EncodeHtml(Eval("Title")) %>
                     </a>
                 </td>
                 <td class="publisher">
                     <a href='<%# ctFilterPublisher.Url(Eval("Publisher.ID").ToString()) %>'>
-                        <%# Eval("Publisher.Name") %>
+                        <%# _.EncodeHtml(Eval("Publisher.Name")) %>
                     </a>
                 </td>
                 <td class="post_date">

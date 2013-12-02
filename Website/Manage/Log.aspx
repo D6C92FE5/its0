@@ -60,11 +60,11 @@
                 <td class="target_type">
                     <a href='<%# ctFilterTargetType.Url(HttpUtility.UrlEncode(
                         Eval("TargetType").ToString())) %>'>
-                        <%# Eval("TargetType") %>
+                        <%# _.EncodeHtml(Eval("TargetType")) %>
                     </a>
                 </td>
                 <td class="description">
-                    <%# Eval("Description") %>
+                    <%# _.EncodeHtml(Eval("Description")) %>
                 </td>
             </tr>
                 </ItemTemplate>

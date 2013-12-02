@@ -18,7 +18,7 @@
 </asp:Content>
 <asp:Content ID="ctBody" ContentPlaceHolderID="_Body" Runat="Server">
     <div class="hero-unit">
-        <p><asp:Literal ID="ctMessage" runat="server"></asp:Literal></p>
+        <p class="pre-wrap"><asp:Literal ID="ctMessage" runat="server"></asp:Literal></p>
         <p>
             <asp:HyperLink ID="ctRedirect" runat="server" Visible="false">
                 如果您的浏览器没有自动跳转，请点击这里
