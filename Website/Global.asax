@@ -12,7 +12,9 @@
         _.ExceptionLogQueue = new System.Collections.Concurrent.ConcurrentQueue<Exception>();
 
         // 访问异常日志的快捷方式
-        RouteTable.Routes.Add("ExceptionLog", new Route("ex.aspx",
+        RouteTable.Routes.Add("ExceptionLog", new Route("ex",
+            new PageRouteHandler("~/ExceptionLog.aspx")));
+        RouteTable.Routes.Add("ExceptionLog2", new Route("ex.aspx",
             new PageRouteHandler("~/ExceptionLog.aspx")));
     }
     

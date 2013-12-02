@@ -1,4 +1,4 @@
-﻿<%@ Page Title="异常日志" Language="C#" MasterPageFile="~/Bootstrap.master" AutoEventWireup="true" CodeFile="Ex.aspx.cs" Inherits="ExceptionLog" %>
+﻿<%@ Page Title="异常日志" Language="C#" MasterPageFile="~/Bootstrap.master" AutoEventWireup="true" CodeFile="ExceptionLog.aspx.cs" Inherits="ExceptionLog" %>
 
 <asp:Content ID="ctHead" ContentPlaceHolderID="_Head" Runat="Server">
     <style>
