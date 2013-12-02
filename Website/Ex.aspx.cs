@@ -9,6 +9,8 @@ public partial class ExceptionLog : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Page.Title = _.GeneratePageTitle(Page.Title, Config.WebsiteName);
+
         ctList.DataSource =
             from ex in _.ExceptionLogQueue
             orderby (DateTime)ex.Data["__its_exception_occur_time__"] descending

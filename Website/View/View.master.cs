@@ -9,6 +9,9 @@ public partial class View_View : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            Page.Header.Title = _.GeneratePageTitle(Page.Header.Title, Config.WebsiteName);
+        }
     }
 }

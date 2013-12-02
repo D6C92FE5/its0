@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Manage/Manage.master" AutoEventWireup="true" CodeFile="ArticleCategoryEdit.aspx.cs" Inherits="Manage_ArticleCategoryEdit" %>
+﻿<%@ Page Title="文章分类编辑" Language="C#" MasterPageFile="~/Manage/Manage.master" AutoEventWireup="true" CodeFile="ArticleCategoryEdit.aspx.cs" Inherits="Manage_ArticleCategoryEdit" %>
 
 <asp:Content ID="ctHead" ContentPlaceHolderID="_Head" Runat="Server">
     <style>

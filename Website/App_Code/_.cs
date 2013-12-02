@@ -297,4 +297,26 @@ public static class _
         }
         return _.User != null;
     }
+
+    /// <summary>
+    /// 生成附加后缀之后的页面标题
+    /// </summary>
+    /// <param name="title">页面原始标题</param>
+    /// <param name="suffix">要附加的后缀</param>
+    /// <returns></returns>
+    public static string GeneratePageTitle(string title, string suffix)
+    {
+        if (!title.EndsWith(suffix))
+        {
+            if (title == "" || title == "首页")
+            {
+                title = suffix;
+            }
+            else
+            {
+                title += " - " + suffix;
+            }
+        }
+        return title;
+    }
 }

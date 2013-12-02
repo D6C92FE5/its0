@@ -14,7 +14,8 @@ public partial class View_List : System.Web.UI.Page
         var category = Request.QueryString["Category"];
         if (!IsPostBack)
         {
-            ctCategory.Text = category ?? "全部文章";
+            ctCategory.Text = _.EncodeHtml(category) ?? "全部文章";
+            Page.Title = ctCategory.Text;
 
             ctPaginator.PageSize = articlePerPage;
             ctPaginator.ItemCount = DB.GetArticleCountByCategoryName(category, true);

@@ -25,9 +25,7 @@ public partial class Manage_Manage : System.Web.UI.MasterPage
 
             ctArticleCategory.Visible = Config.ArticleCategoryEditable;
 
-            // 标题
-            Page.Header.Title += (Page.Header.Title != "" ? " - " : "") + 
-                Config.ManageSystemName;
+            Page.Header.Title = _.GeneratePageTitle(Page.Header.Title, Config.ManageSystemName);
         }
     }
 }

@@ -9,9 +9,14 @@ using System.Web;
 public static class Config
 {
     /// <summary>
+    /// 网站的名字，将会呈现给用户
+    /// </summary>
+    public static readonly string WebsiteName = "示例网站";
+
+    /// <summary>
     /// 管理系统的名字，将会呈现给用户
     /// </summary>
-    public static readonly string ManageSystemName = "网站管理系统";
+    public static readonly string ManageSystemName = WebsiteName + "管理系统";
 
     /// <summary>
     /// 异常日志的数目上限，到达之后最旧的日志会被删除

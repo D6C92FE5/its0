@@ -17,6 +17,7 @@ public partial class View_Content : System.Web.UI.Page
             if (article != null)
             {
                 ctTitle.Text = _.EncodeHtml(article.Title);
+                Page.Title = ctTitle.Text;
                 ctPostDate.Text = article.PostDate.ToString("yyyy/MM/dd HH:mm:ss");
                 ctContent.Text = article.Content;
             }

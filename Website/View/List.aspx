@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/View.master" AutoEventWireup="true" CodeFile="List.aspx.cs" Inherits="View_List" %>
+﻿<%@ Page Title="列表页" Language="C#" MasterPageFile="~/View/View.master" AutoEventWireup="true" CodeFile="List.aspx.cs" Inherits="View_List" %>
 
 <%@ Register Src="~/View/Paginator.ascx" TagPrefix="uc1" TagName="Paginator" %>
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/View.master" AutoEventWireup="true" CodeFile="Content.aspx.cs" Inherits="View_Content" %>
+﻿<%@ Page Title="内容页" Language="C#" MasterPageFile="~/View/View.master" AutoEventWireup="true" CodeFile="Content.aspx.cs" Inherits="View_Content" %>
 
 <asp:Content ID="ctHead" ContentPlaceHolderID="_Head" Runat="Server">
 </asp:Content>
