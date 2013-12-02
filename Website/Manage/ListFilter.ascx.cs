@@ -59,7 +59,7 @@ public partial class Manage_ListFilter : System.Web.UI.UserControl
     /// <returns>对应 queryValue 的 URL</returns>
     public string Url(string queryValue)
     {
-        return _.ModifiedQueryString(QueryField, queryValue);
+        return _.UrlWithQuery(QueryField, queryValue);
     }
 
     /// <summary>

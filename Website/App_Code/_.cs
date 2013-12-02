@@ -137,12 +137,12 @@ public static class _
     }
 
     /// <summary>
-    /// 获取添加或修改 Query 参数后的 Url 字符串
+    /// 获取添加或修改 Query 参数后的 URL 字符串
     /// </summary>
     /// <param name="field">Query 参数名</param>
     /// <param name="value">Query 参数值</param>
     /// <returns></returns>
-    public static string ModifiedQueryString(string field, string value)
+    public static string UrlWithQuery(string field, string value)
     {
         var query = HttpUtility.ParseQueryString(Request.Url.Query);
         if (!string.IsNullOrEmpty(field))
@@ -160,13 +160,13 @@ public static class _
     }
 
     /// <summary>
-    /// 重定向页面并添加或修改 Query 参数
+    /// 重定向至添加或修改 Query 参数后的 URL 
     /// </summary>
     /// <param name="field">Query 参数名</param>
     /// <param name="value">Query 参数值</param>
     public static void RedirectWithQuery(string field, string value, bool endResponse = false)
     {
-        Redirect(Request.Url.AbsolutePath + ModifiedQueryString(field, value), endResponse);
+        Redirect(UrlWithQuery(field, value), endResponse);
     }
 
     /// <summary>
