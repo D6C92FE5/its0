@@ -58,8 +58,7 @@
                     </a>
                 </td>
                 <td class="target_type">
-                    <a href='<%# ctFilterTargetType.Url(HttpUtility.UrlEncode(
-                        Eval("TargetType").ToString())) %>'>
+                    <a href='<%# ctFilterTargetType.Url(_.EncodeUrl(Eval("TargetType"))) %>'>
                         <%# _.EncodeHtml(Eval("TargetType")) %>
                     </a>
                 </td>

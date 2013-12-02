@@ -127,6 +127,16 @@ public static class _
     }
 
     /// <summary>
+    /// 对 URL 字符串进行编码
+    /// </summary>
+    /// <param name="value">一个对象</param>
+    /// <returns>一个已编码的字符串</returns>
+    public static string EncodeUrl(object value)
+    {
+        return HttpUtility.UrlPathEncode(value.ToString());
+    }
+
+    /// <summary>
     /// 获取添加或修改 Query 参数后的 Url 字符串
     /// </summary>
     /// <param name="field">Query 参数名</param>
