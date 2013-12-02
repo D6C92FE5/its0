@@ -29,10 +29,6 @@ public static class Config
     public static readonly string UploadDirectory = "~/Upload/";
 
     /// <summary>
-    /// 显示文章内容页面的 URL 的模板
-    /// </summary>
-    public static readonly string ArtilceDisplayUrlTemplate = "~/Content.aspx?ID={0}";
-    /// <summary>
     /// 是否启用文章置顶功能
     /// </summary>
     public static readonly bool ArticleTopEnabled = false;

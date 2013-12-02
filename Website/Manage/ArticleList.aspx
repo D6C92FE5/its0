@@ -54,8 +54,7 @@
                     </a> 
                 </td>
                 <td class="title">
-                    <a href='<%# ResolveUrl(string.Format(Config.ArtilceDisplayUrlTemplate, 
-                        Eval("ID").ToString())) %>' target="_blank">
+                    <a href='<%# ResolveUrl("~/View/Content.aspx?ID=") + Eval("ID") %>' target="_blank">
                         <%# _.EncodeHtml(Eval("Title")) %>
                     </a>
                 </td>

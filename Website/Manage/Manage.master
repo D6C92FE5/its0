@@ -11,7 +11,7 @@
             <div class="container-fluid">
                 <a class="brand" href="Index.aspx"><%= Config.ManageSystemName %></a>
                 <ul class="nav">
-                    <li><a href='<%= ResolveUrl("~/Default.aspx") %>' target="_blank">
+                    <li><a href='<%= ResolveUrl("~/View/Index.aspx") %>' target="_blank">
                         <i class="icon-home icon-white"></i>网站首页</a></li>
                 </ul>
                 <ul class="nav pull-right">
