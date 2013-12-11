@@ -42,9 +42,12 @@ public partial class Manage_ListFilter : System.Web.UI.UserControl
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        QueryValue = Request.QueryString[QueryField];
-        ctContainer.Visible = QueryValue != null;
-        ctCancel.NavigateUrl = Url(null);
+        if (!IsPostBack)
+        {
+            QueryValue = Request.QueryString[QueryField];
+            ctContainer.Visible = QueryValue != null;
+            ctCancel.NavigateUrl = Url(null);
+        }
     }
     
     protected void Page_Load(object sender, EventArgs e)

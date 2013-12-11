@@ -9,6 +9,9 @@ public partial class Manage_Index : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        ctMyRecent.Visible = DB.GetMyLastArticleID() != 0;
+        if (!IsPostBack)
+        {
+            ctMyRecent.Visible = DB.GetMyLastArticleID() != 0;
+        }
     }
 }

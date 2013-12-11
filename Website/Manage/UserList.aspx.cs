@@ -16,18 +16,21 @@ public partial class Manage_UserList : System.Web.UI.Page
             return;
         }
 
-        // 筛选
-        ctFilterPermission.ParseAndCheck(s => DB.GetUserPermission(int.Parse(s)).Name);
-        var permissionID = int.Parse(ctFilterPermission.QueryValue ?? "0");
+        if (!IsPostBack)
+        {
+            // 筛选
+            ctFilterPermission.ParseAndCheck(s => DB.GetUserPermission(int.Parse(s)).Name);
+            var permissionID = int.Parse(ctFilterPermission.QueryValue ?? "0");
 
-        // 分页
-        ctPaginator.ItemCount = DB.GetUserCount();
+            // 分页
+            ctPaginator.ItemCount = DB.GetUserCount();
 
-        // 绑定
-        ctList.DataSource = DB.GetUsers(
-            ctPaginator.CurrentPage, ctPaginator.PageSize, 
-            permissionID);
-        ctList.DataBind();
+            // 绑定
+            ctList.DataSource = DB.GetUsers(
+                ctPaginator.CurrentPage, ctPaginator.PageSize,
+                permissionID);
+            ctList.DataBind();
+        }
     }
     protected void ctDelete_Command(object sender, CommandEventArgs e)
     {

@@ -16,20 +16,23 @@ public partial class Manage_ArticleList : System.Web.UI.Page
             return;
         }
 
-        // 筛选
-        ctFilterCategory.ParseAndCheck(s => DB.GetArticleCategory(int.Parse(s)).Name);
-        var categoryID = int.Parse(ctFilterCategory.QueryValue ?? "0");
-        ctFilterPublisher.ParseAndCheck(s => DB.GetUser(int.Parse(s)).Name);
-        var publisherID = int.Parse(ctFilterPublisher.QueryValue ?? "0");
+        if (!IsPostBack)
+        {
+            // 筛选
+            ctFilterCategory.ParseAndCheck(s => DB.GetArticleCategory(int.Parse(s)).Name);
+            var categoryID = int.Parse(ctFilterCategory.QueryValue ?? "0");
+            ctFilterPublisher.ParseAndCheck(s => DB.GetUser(int.Parse(s)).Name);
+            var publisherID = int.Parse(ctFilterPublisher.QueryValue ?? "0");
 
-        // 分页
-        ctPaginator.ItemCount = DB.GetArticleCount(categoryID, publisherID);
+            // 分页
+            ctPaginator.ItemCount = DB.GetArticleCount(categoryID, publisherID);
 
-        // 绑定
-        ctList.DataSource = DB.GetArticles(
-            ctPaginator.CurrentPage, ctPaginator.PageSize, 
-            categoryID, publisherID);
-        ctList.DataBind();
+            // 绑定
+            ctList.DataSource = DB.GetArticles(
+                ctPaginator.CurrentPage, ctPaginator.PageSize,
+                categoryID, publisherID);
+            ctList.DataBind();
+        }
     }
     protected void ctDelete_Command(object sender, CommandEventArgs e)
     {

@@ -22,8 +22,11 @@ public partial class Manage_ArticleCategoryList : System.Web.UI.Page
             return;
         }
 
-        ctList.DataSource = DB.GetArticleCategories();
-        ctList.DataBind();
+        if (!IsPostBack)
+        {
+            ctList.DataSource = DB.GetArticleCategories();
+            ctList.DataBind();
+        }
     }
     protected void ctDelete_Command(object sender, CommandEventArgs e)
     {

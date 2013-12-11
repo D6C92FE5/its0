@@ -95,30 +95,36 @@ public partial class Manage_Paginator : System.Web.UI.UserControl
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        var pageString = Request.QueryString[QueryField];
-        if (pageString != null)
+        if (!IsPostBack)
         {
-            var page = 1;
-            if (pageString == "All") // 显示全部页面
+            var pageString = Request.QueryString[QueryField];
+            if (pageString != null)
             {
-                PageSize = 0;
-            }
-            else if (int.TryParse(pageString, out page))
-            {
-                CurrentPage = page;
-            }
-            else
-            {
-                _.RedirectWithQuery(QueryField, null, true);
+                var page = 1;
+                if (pageString == "All") // 显示全部页面
+                {
+                    PageSize = 0;
+                }
+                else if (int.TryParse(pageString, out page))
+                {
+                    CurrentPage = page;
+                }
+                else
+                {
+                    _.RedirectWithQuery(QueryField, null, true);
+                }
             }
         }
     }
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (PageCount == 1 || PageSize == 0) // 只有一页或者不分页
+        if (!IsPostBack)
         {
-            Paginator.Visible = false;
+            if (PageCount == 1 || PageSize == 0) // 只有一页或者不分页
+            {
+                Paginator.Visible = false;
+            }
         }
     }
 }
