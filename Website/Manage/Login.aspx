@@ -8,6 +8,11 @@
             background-color: #f5f5f5;
         }
 
+        .hide {
+            display: none!important;
+            visibility: hidden!important;
+        }
+
         .container {
             width: auto;
             min-width: 400px;

@@ -21,6 +21,11 @@ public partial class Manage_Login : System.Web.UI.Page
             // 配置
             ctName.MaxLength = Config.UserNameMaxLength;
             ctPassword.MaxLength = Config.UserPasswordMaxLength;
+            if (!Config.MultiUser)
+            {
+                ctName.Text = "ad";
+                ctName.CssClass += " hide ";
+            }
 
             // 标题
             Page.Header.Title += (Page.Header.Title != "" ? " - " : "") + 

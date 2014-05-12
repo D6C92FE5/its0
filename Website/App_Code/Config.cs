@@ -68,6 +68,11 @@ public static class Config
     public static readonly int ArticleCategoryNameMaxLength = 100;
 
     /// <summary>
+    /// 是否为多用户模式
+    /// </summary>
+    public static readonly bool MultiUser = true;
+
+    /// <summary>
     /// 用户名的最大长度
     /// </summary>
     public static readonly int UserNameMaxLength = 20;
@@ -80,4 +85,9 @@ public static class Config
     /// 每页显示的项目数的默认值，一般只用于管理系统
     /// </summary>
     public static readonly int DefaultPageSize = 10;
+
+    /// <summary>
+    /// 日志页面是否可见
+    /// </summary>
+    public static readonly bool LogVisible = true;
 }

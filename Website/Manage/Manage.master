@@ -59,13 +59,15 @@
                         </ul>
                     </div>
                 </asp:PlaceHolder>
-                <div class="well sidebar-nav">
-                    <ul class="nav nav-list">
-                        <li class="nav-header">日志</li>
-                        <li><a href="Log.aspx">
-                            <i class="icon-list-alt"></i>查看日志</a></li>
-                    </ul>
-                </div>
+                <asp:PlaceHolder ID="ctLog" runat="server">
+                    <div class="well sidebar-nav">
+                        <ul class="nav nav-list">
+                            <li class="nav-header">日志</li>
+                            <li><a href="Log.aspx">
+                                <i class="icon-list-alt"></i>查看日志</a></li>
+                        </ul>
+                    </div>
+                </asp:PlaceHolder>
                 <div class="well sidebar-nav">
                     <ul class="nav nav-list">
                         <li class="nav-header">帮助</li>
