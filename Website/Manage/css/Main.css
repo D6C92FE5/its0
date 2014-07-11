@@ -1,4 +1,8 @@
 ﻿
+body, h1, h2, h3, h5, h6, .h1, .h2, .h3, .h5, .h6 {
+    font-family: "Helvetica Neue", Helvetica,Arial, "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
 body {
     padding-top: 60px;
     padding-bottom: 40px;
