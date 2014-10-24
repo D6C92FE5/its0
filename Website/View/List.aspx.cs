@@ -21,7 +21,7 @@ public partial class View_List : System.Web.UI.Page
             ctPaginator.ItemCount = DB.GetArticleCountByCategoryName(category, true);
 
             ctList.DataSource = DB.GetArticlesByCategoryName(ctPaginator.CurrentPage,
-                articlePerPage, category, true);
+                ctPaginator.PageSize, category, true);
             ctList.DataBind();
         }
     }

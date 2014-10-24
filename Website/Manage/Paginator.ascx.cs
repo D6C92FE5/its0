@@ -16,6 +16,7 @@ public partial class Manage_Paginator : System.Web.UI.UserControl
         set;
     }
 
+    private bool showAll = false;
     private int _PageSize;
     /// <summary>
     /// 每页项目数
@@ -24,7 +25,7 @@ public partial class Manage_Paginator : System.Web.UI.UserControl
     {
         get
         {
-            return _PageSize;
+            return showAll ? 0 : _PageSize;
         }
         set
         {
@@ -103,7 +104,7 @@ public partial class Manage_Paginator : System.Web.UI.UserControl
                 var page = 1;
                 if (pageString == "All") // 显示全部页面
                 {
-                    PageSize = 0;
+                    showAll = true;
                 }
                 else if (int.TryParse(pageString, out page))
                 {
